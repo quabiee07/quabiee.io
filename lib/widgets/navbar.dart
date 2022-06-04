@@ -1,99 +1,111 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfoilio/res/manager.dart';
-import 'package:portfoilio/utils/responsive_layout.dart';
-import 'package:portfoilio/widgets/reach_btn.dart';
 
-class NavBar extends StatelessWidget {
-  NavBar({Key? key}) : super(key: key);
-  final navLinks = ['Home', 'Skills', 'Projects', 'Contact'];
+class CustomBottomNavigationBar extends StatefulWidget {
+  final int defaultSelectedIndex;
+  final Function(int) onChange;
+  final List<IconData> iconList;
 
-  List<Widget> navItem() {
-    return navLinks
-        .map(
-          (text) => GestureDetector(
-            onTap: () {},
-            child: Container(
-              padding: const EdgeInsets.only(left: 18),
-              child: Text(
-                text,
-                style:
-                    getBoldStyle(fontSize: FontSize.s16, color: Colors.black87),
-              ),
-            ),
-          ),
-        )
-        .toList();
+  CustomBottomNavigationBar(
+      {Key? key,
+      this.defaultSelectedIndex = 0,
+      required this.iconList,
+      required this.onChange});
+
+  @override
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int _selectedIndex = 0;
+  List<dynamic> _iconList = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _selectedIndex = widget.defaultSelectedIndex;
+    _iconList = widget.iconList;
   }
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> _navBarItemList = [];
+
+    for (var i = 0; i < _iconList.length; i++) {
+      _navBarItemList.add(buildNavBarItem(_iconList[i], i));
+    }
+
+    final width = MediaQuery.of(context).size.width / 1.5;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset('logoo.png'),
-          if (!ResponsiveLayout.isMobile(context))
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ...navItem(),
-                // SizedBox(width: 300,),
-                ReachButton()
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Container(
+            width: width,
+            height: 100,
+            decoration: BoxDecoration(
+              color: ColorManager.backgroundColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(.15),
+                  blurRadius: 30,
+                  offset: const Offset(0, 10),
+                ),
               ],
-            )
-          else
-            IconButton(onPressed: () {}, icon: const Icon(Icons.menu_rounded))
-        ],
-      ),
-    );
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _navBarItemList,
+            )));
   }
-}
 
-class ContentView {
-  final CustomTab tab;
-  final Widget content;
-  ContentView({required this.tab, required this.content});
-}
-
-class CustomTab extends StatelessWidget {
-  final String title;
-  const CustomTab({Key? key, required this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Tab(
-      child: Text(
-        title,
-        style: const TextStyle(
-            fontSize: 18,
-            fontFamily: 'Montserrat',
-            fontWeight: FontWeightManager.medium),
-      ),
-    );
-  }
-}
-
-class CustomTabBar extends StatelessWidget {
-  final TabController controller;
-  final List<Widget> tabs;
-  const CustomTabBar({Key? key, required this.controller, required this.tabs})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    return SizedBox(
-      width: width * 0.45,
-      child: Center(
-        child: TabBar(
-          tabs: tabs,
-          controller: controller,
-          indicatorColor: ColorManager.primaryBlue,
-          indicatorPadding: const EdgeInsets.symmetric(horizontal: 55),
-          labelColor: ColorManager.primaryBlue,
-          unselectedLabelColor: Colors.black,
+  Widget buildNavBarItem(icon, int index) {
+    final width = MediaQuery.of(context).size.width / 1.5;
+    return GestureDetector(
+      onTap: () {
+        widget.onChange(index);
+        setState(
+          () {
+            _selectedIndex = index;
+          },
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(color: ColorManager.backgroundColor),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Icon(icon,
+                  size: 30,
+                  color: index == _selectedIndex
+                      ? ColorManager.primaryBlue
+                      : Colors.grey),
+              const SizedBox(
+                height: 10,
+              ),
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 1500),
+                curve: Curves.fastLinearToSlowEaseIn,
+                margin: EdgeInsets.only(
+                  right: width * .0422,
+                  left: width * .0422,
+                ),
+                width: 8,
+                height: index == _selectedIndex ? width * .010 : 0,
+                decoration: BoxDecoration(
+                    color: ColorManager.primaryBlue,
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+            ],
+          ),
         ),
       ),
     );

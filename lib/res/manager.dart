@@ -81,5 +81,10 @@ class ColorManager{
   static Color secondaryBlue = Color(0xFF0070F2);
   static Color backgroundColor = Color(0xFFE9F2F7);
   static Color secondaryColor = Color(0xFF80B5FF);
-  // static Color secondaryColor = Color(0xFF);
+  static Color fadeTextColor = Colors.white;
+}
+
+class StringManager{
+  final text =
+      'I\'m a self-taught mobile developer with more than\n3 years of experience in android development.\nI am also seasoned UI designer who creates minimalist \nbut beautiful designs for web and mobile applications. \nI build both native and cross-platform apps using Flutter.';
 }
