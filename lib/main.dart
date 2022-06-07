@@ -54,31 +54,32 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SizedBox.expand(
         child: PageView(
-          physics: BouncingScrollPhysics(),
+          // physics: NeverScrollableScrollPhysics(),
           controller: _pageController,
-          scrollDirection: Axis.vertical,
+          
+          scrollDirection: Axis.horizontal,
           onPageChanged: (index){
             setState(() {
               _selectedIndex = index;
             });
           },
           children: [
-           const Home(),
-              Container(color: Colors.red,),
+            const Home(),
+            const SkillPage(),
               Container(color: Colors.green,),
               Container(color: Colors.blue,),
           ],
 
         ),
       ),
-      // floatingActionButton: Align(
-      //   alignment: Alignment.bottomCenter,
-      //   child: CustomBottomNavigationBar(
-      //     iconList: const [Icons.home, Icons.layers, Icons.pages, Icons.person],
-      //     onChange: _onItemTapped,
-      //     defaultSelectedIndex: _selectedIndex,
-      //   ),
-      // ),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: CustomBottomNavigationBar(
+          iconList: const [Icons.home, Icons.layers, Icons.pages, Icons.person],
+          onChange: _onItemTapped,
+          defaultSelectedIndex: _selectedIndex,
+        ),
+      ),
     );
   }
 

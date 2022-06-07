@@ -5,9 +5,8 @@ import '../res/manager.dart';
 class LogoContainer extends StatelessWidget {
   final String title;
   final String text;
-  final Color color;
   const LogoContainer(
-      {Key? key, required this.title, required this.text, required this.color})
+      {Key? key, required this.title, required this.text, })
       : super(key: key);
 
   @override
@@ -15,31 +14,34 @@ class LogoContainer extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          height: 109,
-          width: 109,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            color: color,
-            boxShadow: const [
-              BoxShadow(
-                  color: Colors.black,
-                  offset: const Offset(0, 4),
-                  blurRadius: 6),
-            ],
-          ),
-          child: Center(
-            child: Image.asset(title),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            height: 120,
+            width: 120,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7.0),
+              color: Colors.white,
+              boxShadow:  [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.25),
+                    offset: const Offset(0, 2),
+                    blurRadius: 2),
+              ],
+            ),
+            child: Center(
+              child: Image.asset(title),
+            ),
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 10,
         ),
         Text(
           text,
           style: getSemiBoldStyle(
-            fontSize: FontSize.s16,
-            color: ColorManager.secondaryBlue,
+            fontSize: FontSize.s18,
+            color: Colors.black87,
           ),
         ),
       ],

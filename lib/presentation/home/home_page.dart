@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoilio/res/manager.dart';
 import 'package:portfoilio/utils/responsive_layout.dart';
+import 'package:portfoilio/widgets/reach_btn.dart';
 import 'package:portfoilio/widgets/skill_container.dart';
 
 class Home extends StatelessWidget {
@@ -24,17 +25,31 @@ class DesktopHome extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: ColorManager.backgroundColor,
+        decoration: BoxDecoration(
+          color: ColorManager.backgroundColor,
+        ),
         child: Stack(
+          
           children: [
             Positioned(
-              top: -300,
+              top: -230,
               child: Image.asset(
                 'desktop_bg1.png',
                 scale: 1,
                 fit: BoxFit.cover,
               ),
             ),
+             Positioned(
+              top: 15,
+              left: 15,
+              child: Text('quabiee.io',
+                      style: getBlackStyle(fontSize: 15, color: Colors.white)),
+              ),
+              const Positioned(
+                top:15,
+                right:15,
+                child: ReachButton(),),
+                
             Positioned(
               right: 0,
               child: Image.asset(
@@ -56,21 +71,22 @@ class DesktopHome extends StatelessWidget {
                   Text(
                     StringManager.salutaion,
                     style: getMediumStyle(
-                      fontSize: 45,
+                      fontSize: 42,
                       color: Colors.white.withOpacity(0.6),
                     ),
                   ),
                   Text(
                     StringManager.name,
-                    style: getBlackStyle(fontSize: 72, color: Colors.white),
+                    style: getBlackStyle(fontSize: 70, color: Colors.white),
                   ),
                   Text(
                     StringManager.path,
                     style: getSemiBoldStyle(
-                      fontSize: 33,
+                      fontSize: 30,
                       color: Colors.white.withOpacity(0.8),
                     ),
                   ),
+                  SizedBox(height: 10,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -81,6 +97,8 @@ class DesktopHome extends StatelessWidget {
                       contactContainer('Twitter.png'),
                     ],
                   ),
+                  SizedBox(height: 10,),
+                  
                 ],
               ),
             ),

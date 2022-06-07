@@ -85,12 +85,17 @@ class ColorManager{
 }
 
 class StringManager{
-  static String text =
-      'I\'m a self-taught mobile developer with more than\n3 years of experience in android development.\nI am also seasoned UI designer who creates minimalist \nbut beautiful designs for web and mobile applications. \nI build both native and cross-platform apps using Flutter.';
+  static String lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus neque scelerisque a ut fringilla commodo. Condimentum quam tortor facilisi enim. Et scelerisque consequat mattis tellus volutpat sed enim. Mi, bibendum sed quis aliquet ultricies aliquet eu. Lacus mattis dolor urna, in. Magna egestas scelerisque sed neque euismod aliquam. Nulla posuere mi bibendum quam etiam velit mollis parturient nec. Eget tellus eu euismod velit elementum sit. Et euismod egestas enim amet, fames turpis. Bibendum eget ultricies sed sit vitae venenatis, quis sit senectus. Scelerisque aenean tortor nunc quis pretium. Vulputate id imperdiet tellus, vestibulum quis amet posuere iaculis lacus. Nulla pellentesque nisi sit sem nisl egestas.';
+  static String lorem1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus neque scelerisque a ut fringilla commodo. Condimentum quam tortor facilisi enim. Et scelerisque consequat mattis tellus volutpat sed enim. Mi, bibendum sed quis aliquet ultricies aliquet eu. Lacus mattis dolor \nurna, in.';
+  static String text = 'I\'m a self-taught mobile developer with more than\n3 years of experience in android development.\nI am also seasoned UI designer who creates minimalist \nbut beautiful designs for web and mobile applications. \nI build both native and cross-platform apps using Flutter.';
   static String salutaion = 'Hello, I\'m ';
   static String name = 'Ihekwaba Ebuka ';
   static String path = 'UI/UX Designer & Mobile Developer ';
-}
+  static String languagesIUse = 'Languages I use';
+  static String mySkills = 'My Skills';
+  static String toolsIUse = 'Frameworks & Tools';
+
+  }
 
 class AssetManager{
   static const String bgImage = 'desktop_bg1.png';
@@ -100,4 +105,9 @@ class AssetManager{
   static const String profile = 'Profile.svg';
   static const String home = 'Home.svg';
   static const String projects = 'Microsoft.svg';
+  static const String home3D = '';
+  static const String skill3D = 'Saly-10.png';
+  static const String sideCirle = 'side_circle.png';
+  static const String ellipse = 'Ellipse.png';
+  static const String skillMobileBg = 'Group60.png';
 }

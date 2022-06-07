@@ -12,12 +12,13 @@ class ReachButton extends StatelessWidget {
         decoration: BoxDecoration(
           color:ColorManager.secondaryBlue,
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.white,width: 2),
           boxShadow: [
-            BoxShadow(
-                color: ColorManager.secondaryBlue.withOpacity(.3),
-                offset: const Offset(0, 8),
-                blurRadius: 7
-            ),
+            // BoxShadow(
+            //     color: Colors.white.withOpacity(.5),
+            //     offset: const Offset(0, 8),
+            //     blurRadius: 4
+            // ),
           ],
         ),
         child:  Material(
@@ -27,7 +28,7 @@ class ReachButton extends StatelessWidget {
             child: Center(
               child: Text(
                 'RESUME',
-                style:getMediumStyle(fontSize: FontSize.s16, color: Colors.white),
+                style:getBoldStyle(fontSize: FontSize.s16, color: Colors.white),
               ),
             ),
           ),
