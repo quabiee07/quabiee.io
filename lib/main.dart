@@ -54,14 +54,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SizedBox.expand(
         child: PageView(
+          physics: BouncingScrollPhysics(),
           controller: _pageController,
+          scrollDirection: Axis.vertical,
           onPageChanged: (index){
             setState(() {
               _selectedIndex = index;
             });
           },
           children: [
-           Home(),
+           const Home(),
               Container(color: Colors.red,),
               Container(color: Colors.green,),
               Container(color: Colors.blue,),
@@ -69,14 +71,14 @@ class _HomePageState extends State<HomePage> {
 
         ),
       ),
-      floatingActionButton: Align(
-        alignment: Alignment.bottomCenter,
-        child: CustomBottomNavigationBar(
-          iconList: const [Icons.home, Icons.layers, Icons.pages, Icons.person],
-          onChange: _onItemTapped,
-          defaultSelectedIndex: _selectedIndex,
-        ),
-      ),
+      // floatingActionButton: Align(
+      //   alignment: Alignment.bottomCenter,
+      //   child: CustomBottomNavigationBar(
+      //     iconList: const [Icons.home, Icons.layers, Icons.pages, Icons.person],
+      //     onChange: _onItemTapped,
+      //     defaultSelectedIndex: _selectedIndex,
+      //   ),
+      // ),
     );
   }
 

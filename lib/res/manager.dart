@@ -85,6 +85,19 @@ class ColorManager{
 }
 
 class StringManager{
-  final text =
+  static String text =
       'I\'m a self-taught mobile developer with more than\n3 years of experience in android development.\nI am also seasoned UI designer who creates minimalist \nbut beautiful designs for web and mobile applications. \nI build both native and cross-platform apps using Flutter.';
+  static String salutaion = 'Hello, I\'m ';
+  static String name = 'Ihekwaba Ebuka ';
+  static String path = 'UI/UX Designer & Mobile Developer ';
+}
+
+class AssetManager{
+  static const String bgImage = 'desktop_bg1.png';
+  static const String rocket = 'rocket.png';
+  static const String planet = 'planet.png';
+  static const String skill = 'Bursts.svg';
+  static const String profile = 'Profile.svg';
+  static const String home = 'Home.svg';
+  static const String projects = 'Microsoft.svg';
 }

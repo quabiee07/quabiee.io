@@ -87,7 +87,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   size: 30,
                   color: index == _selectedIndex
                       ? ColorManager.primaryBlue
-                      : Colors.grey),
+                      : Colors.black),
               const SizedBox(
                 height: 10,
               ),
