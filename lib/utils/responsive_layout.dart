@@ -6,10 +6,10 @@ class ResponsiveLayout extends StatelessWidget {
   final Widget? smallScreen;
 
   const ResponsiveLayout({
-    Key? key,
+    Key? key, 
+    required this.largeScreen,
     this.smallScreen,
-    this.mediumScreen,
-    required this.largeScreen
+    this.mediumScreen
     }): super(key: key);
 
   static bool isMobile(BuildContext context){
@@ -30,9 +30,9 @@ class ResponsiveLayout extends StatelessWidget {
       if(constraints.maxWidth> 800) {
         return largeScreen;
       } else if(constraints.maxWidth< 1200 && constraints.maxWidth > 800){
-        return mediumScreen!;
+        return mediumScreen ?? largeScreen;
       } else{
-        return smallScreen!;
+        return smallScreen?? largeScreen;
       }
     });
   }

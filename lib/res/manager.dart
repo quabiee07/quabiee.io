@@ -23,8 +23,6 @@ class FontSize{
   static const double s40 = 40.0;
 }
 
-
-
 TextStyle _getTextStyle(
     double fontSize, String fontFamily, FontWeight fontWeight, Color color) {
   return TextStyle(
@@ -77,28 +75,29 @@ TextStyle getMediumStyle(
 }
 
 class ColorManager{
-  static Color primaryBlue = Color(0xFF1652F0);
-  static Color secondaryBlue = Color(0xFF0070F2);
-  static Color backgroundColor = Color(0xFFE9F2F7);
-  static Color secondaryColor = Color(0xFF80B5FF);
-  static Color fadeTextColor = Colors.white;
+  static const Color primaryBlue = Color(0xFF1652F0);
+  static const Color secondaryBlue = Color(0xFF0070F2);
+  static const Color backgroundColor = Color(0xFFE9F2F7);
+  static const Color secondaryColor = Color(0xFF80B5FF);
+  static const Color fadeTextColor = Colors.white;
 }
 
 class StringManager{
   static String lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus neque scelerisque a ut fringilla commodo. Condimentum quam tortor facilisi enim. Et scelerisque consequat mattis tellus volutpat sed enim. Mi, bibendum sed quis aliquet ultricies aliquet eu. Lacus mattis dolor urna, in. Magna egestas scelerisque sed neque euismod aliquam. Nulla posuere mi bibendum quam etiam velit mollis parturient nec. Eget tellus eu euismod velit elementum sit. Et euismod egestas enim amet, fames turpis. Bibendum eget ultricies sed sit vitae venenatis, quis sit senectus. Scelerisque aenean tortor nunc quis pretium. Vulputate id imperdiet tellus, vestibulum quis amet posuere iaculis lacus. Nulla pellentesque nisi sit sem nisl egestas.';
-  static String lorem1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus neque scelerisque a ut fringilla commodo. Condimentum quam tortor facilisi enim. Et scelerisque consequat mattis tellus volutpat sed enim. Mi, bibendum sed quis aliquet ultricies aliquet eu. Lacus mattis dolor \nurna, in.';
+  static String lorem1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus neque scelerisque a ut fringilla commodo. Condimentum quam tortor facilisi enim.';
   static String text = 'I\'m a self-taught mobile developer with more than\n3 years of experience in android development.\nI am also seasoned UI designer who creates minimalist \nbut beautiful designs for web and mobile applications. \nI build both native and cross-platform apps using Flutter.';
   static String salutaion = 'Hello, I\'m ';
-  static String name = 'Ihekwaba Ebuka ';
+  static String name = 'Ihekwaba \nChukwuebuka ';
   static String path = 'UI/UX Designer & Mobile Developer ';
   static String languagesIUse = 'Languages I use';
   static String mySkills = 'My Skills';
   static String toolsIUse = 'Frameworks & Tools';
-
-  }
+  static String projectName =  'Academic Virtual Assistant (AVA)';
+  static String githubLink = 'Github Link';
+}
 
 class AssetManager{
-  static const String bgImage = 'desktop_bg1.png';
+  static const String bgImage = 'background.png';
   static const String rocket = 'rocket.png';
   static const String planet = 'planet.png';
   static const String skill = 'Bursts.svg';
@@ -110,4 +109,39 @@ class AssetManager{
   static const String sideCirle = 'side_circle.png';
   static const String ellipse = 'Ellipse.png';
   static const String skillMobileBg = 'Group60.png';
+  static const String mypic = 'backdrop.png';
+  static const String twitter = 'Twitter.png';
+  static const String linkedln = 'LinkedIn.png';
+  static const String github = 'GitHub.png';
+  static const String gmail = 'Gmail.png';
+  static const String phone = 'Phone.png';
+
 }
+
+const defaultPadding = 20.0;
+
+final defaultShadow = BoxShadow(
+  offset: Offset(0,50),
+  blurRadius: 50,
+  color: ColorManager.primaryBlue.withOpacity(0.15)
+);
+
+final defaultCardShadow = BoxShadow(
+  offset: Offset(0,20),
+  blurRadius: 50,
+  color: Colors.black.withOpacity(0.1)
+);
+
+final defaultInputDecorationTheme =  InputDecorationTheme(
+  border: defaultOUtlineBorder,
+  enabledBorder: defaultOUtlineBorder,
+  focusedBorder: defaultOUtlineBorder
+);
+
+final defaultOUtlineBorder = OutlineInputBorder(
+  
+  borderRadius:BorderRadius.circular(50),
+  borderSide: BorderSide(
+    color:Color(0xFFCEE4FD),
+  )
+);

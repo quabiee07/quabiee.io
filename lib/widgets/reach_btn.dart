@@ -8,18 +8,12 @@ class ReachButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
+        height: 40,
         margin: const EdgeInsets.only(left: 20),
         decoration: BoxDecoration(
           color:ColorManager.secondaryBlue,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.white,width: 2),
-          boxShadow: [
-            // BoxShadow(
-            //     color: Colors.white.withOpacity(.5),
-            //     offset: const Offset(0, 8),
-            //     blurRadius: 4
-            // ),
-          ],
         ),
         child:  Material(
           color: Colors.transparent,

@@ -4,12 +4,12 @@ import 'package:portfoilio/res/manager.dart';
 class CustomBottomNavigationBar extends StatefulWidget {
   final int defaultSelectedIndex;
   final Function(int) onChange;
-  final List<IconData> iconList;
+  final List<String> textList;
 
   CustomBottomNavigationBar(
       {Key? key,
       this.defaultSelectedIndex = 0,
-      required this.iconList,
+      required this.textList,
       required this.onChange});
 
   @override
@@ -19,49 +19,33 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
-  List<dynamic> _iconList = [];
+  List<dynamic> _textList = [];
 
   @override
   void initState() {
     super.initState();
 
     _selectedIndex = widget.defaultSelectedIndex;
-    _iconList = widget.iconList;
+    _textList = widget.textList;
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> _navBarItemList = [];
 
-    for (var i = 0; i < _iconList.length; i++) {
-      _navBarItemList.add(buildNavBarItem(_iconList[i], i));
+    for (var i = 0; i < _textList.length; i++) {
+      _navBarItemList.add(buildNavBarItem(_textList[i], i));
     }
 
     final width = MediaQuery.of(context).size.width / 1.5;
 
-    return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: Container(
-            width: width,
-            height: 100,
-            decoration: BoxDecoration(
-              color: ColorManager.backgroundColor,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(.15),
-                  blurRadius: 30,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: _navBarItemList,
-            )));
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: _navBarItemList,
+    );
   }
 
-  Widget buildNavBarItem(icon, int index) {
+  Widget buildNavBarItem(text, int index) {
     final width = MediaQuery.of(context).size.width / 1.5;
     return GestureDetector(
       onTap: () {
@@ -73,39 +57,34 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          height: 60,
-          width: 60,
-          decoration: BoxDecoration(color: ColorManager.backgroundColor),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Icon(icon,
-                  size: 30,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Text(
+              text,
+              style: getSemiBoldStyle(
+                  fontSize: 18,
                   color: index == _selectedIndex
-                      ? ColorManager.primaryBlue
-                      : Colors.black),
-              const SizedBox(
-                height: 10,
+                      ? Colors.white
+                      : Colors.black87),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 1500), 
+              curve: Curves.fastLinearToSlowEaseIn,
+              margin: EdgeInsets.only(
+                right: width * .0422,
+                left: width * .0422,
               ),
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 1500),
-                curve: Curves.fastLinearToSlowEaseIn,
-                margin: EdgeInsets.only(
-                  right: width * .0422,
-                  left: width * .0422,
-                ),
-                width: 8,
-                height: index == _selectedIndex ? width * .010 : 0,
-                decoration: BoxDecoration(
-                    color: ColorManager.primaryBlue,
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-            ],
-          ),
+              width: 10,
+              height: index == _selectedIndex ? 5 : 0,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20)),
+            ),
+          ],
         ),
       ),
     );

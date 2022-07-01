@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../res/manager.dart';
 
 class LogoContainer extends StatelessWidget {
@@ -17,8 +16,8 @@ class LogoContainer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: Container(
-            height: 120,
-            width: 120,
+            height: 80,
+            width: 80,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(7.0),
               color: Colors.white,
@@ -30,12 +29,15 @@ class LogoContainer extends StatelessWidget {
               ],
             ),
             child: Center(
-              child: Image.asset(title),
+              child: Image.asset(
+                title, 
+                scale: 2,
+                ),
             ),
           ),
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         Text(
           text,
